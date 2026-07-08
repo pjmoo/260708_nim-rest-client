@@ -3,7 +3,7 @@
 ![Step 0 Badge](https://img.shields.io/badge/Step-0-orange?style=for-the-badge&logo=spring)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-Step 0에서는 Spring Boot 3 애플리케이션의 구동을 위한 기초 뼈대(Skeleton)를 구성하고, 기본적인 의존성(Dependencies) 및 빌드 환경을 설정합니다.
+Step 0에서는 Spring Boot 4 애플리케이션의 구동을 위한 기초 뼈대(Skeleton)를 구성하고, 기본적인 의존성(Dependencies) 및 빌드 환경을 설정합니다.
 
 ---
 

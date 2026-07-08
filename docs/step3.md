@@ -3,7 +3,7 @@
 ![Step 3 Badge](https://img.shields.io/badge/Step-3-red?style=for-the-badge&logo=nvidia)
 ![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
-Step 3에서는 Spring Boot 3의 현대적인 동기식 HTTP 클라이언트인 `RestClient`를 활용하고 외부 AI 연동 규격을 DTO로 설계하여, NVIDIA NIM API(DeepSeek V4 Flash)로부터 사용자가 입력한 과목에 대한 실제 AI 기반 맞춤형 학습 계획 데이터를 받아와 가공 및 서빙합니다.
+Step 3에서는 Spring Boot 4의 현대적인 동기식 HTTP 클라이언트인 `RestClient`를 활용하고 외부 AI 연동 규격을 DTO로 설계하여, NVIDIA NIM API(DeepSeek V4 Flash)로부터 사용자가 입력한 과목에 대한 실제 AI 기반 맞춤형 학습 계획 데이터를 받아와 가공 및 서빙합니다.
 
 ---
 
@@ -94,11 +94,11 @@ public record NimResponseDTO(
   | :--- | :--- | :--- | :--- |
   | **동작 방식** | 동기 / 블로킹 | 동기 & 비동기 / 논블로킹 | 동기 / 블로킹 |
   | **스타일** | 템플릿 기반 (오버로딩 다수) | 리액티브 Fluent API | 동기형 Fluent API |
-  | **라이브러리** | `spring-web` 기본 포함 | `spring-webflux` 추가 필요 | `spring-web` (Boot 3.2+) |
+  | **라이브러리** | `spring-web` 기본 포함 | `spring-webflux` 추가 필요 | `spring-web` (Boot 3.2+/4.x) |
 
   * **선택 기준**:
     * 완전 비동기/논블로킹 환경이거나 처리량 극대화가 필요한 아키텍처라면 `WebClient`를 사용하는 것이 마땅합니다.
-    * 하지만 단순 동기 호출 위주의 아키텍처라면 굳이 복잡한 `Reactive Streams` 의존성을 도입하지 않고, Spring 6의 최신 `RestClient`를 사용하는 것이 직관적이고 유지보수 비용을 낮추는 가장 좋은 대안이 됩니다.
+    * 하지만 단순 동기 호출 위주의 아키텍처라면 굳이 복잡한 `Reactive Streams` 의존성을 도입하지 않고, Spring의 최신 `RestClient`를 사용하는 것이 직관적이고 유지보수 비용을 낮추는 가장 좋은 대안이 됩니다.
 
 ### Q2. 외부 API 장애가 서비스 전체로 전파되는 현상을 방지하기 위한 Spring Boot 환경에서의 대비책은 무엇인가요?
 * **A.** 서킷 브레이커(Circuit Breaker) 패턴을 도입해 타 시스템 장애 격리 정책을 수립해야 합니다.
