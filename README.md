@@ -64,8 +64,12 @@ NVIDIA NIM API를 사용하기 위해 [NVIDIA API Keys](https://build.nvidia.com
 NIM_API_KEY=your_nvidia_nim_api_key_here
 ```
 
-### 2. 프로젝트 빌드 및 실행
-```bash
-./mvnw spring-boot:run
-```
-이후 브라우저에서 `http://localhost:8080`에 접속하여 학습 계획 생성을 테스트해보실 수 있습니다.
+### 2. IntelliJ IDEA를 통한 실행
+1. IntelliJ IDEA에서 본 프로젝트를 오픈합니다.
+2. `src/main/java/org/example/nimrestclient/NimRestClientApplication.java` 메인 클래스로 이동합니다.
+3. `main` 메서드 좌측의 초록색 실행 버튼(▶)을 클릭하여 **'Run 'NimRestClientApplication''**을 통해 실행합니다.
+   > ⚠️ **환경변수 설정 주의**
+   >
+   > IntelliJ에서 애플리케이션을 구동하기 전, 반드시 상단 실행 구성 설정(**Run/Debug Configurations**)의 **Environment variables** 필드에 `NIM_API_KEY` 환경변수와 값을 추가하거나 `EnvFile` 플러그인을 활성화하여 API 키 값을 주입해야 에러 없이 정상 연동됩니다.
+4. 구동 완료 후 브라우저에서 `http://localhost:8080`에 접속하여 학습 계획 생성을 테스트합니다.
+
