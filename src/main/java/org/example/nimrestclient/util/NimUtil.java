@@ -1,5 +1,7 @@
 package org.example.nimrestclient.util;
 
+import org.example.nimrestclient.dto.NimRequestDTO;
+import org.example.nimrestclient.dto.NimResponseDTO;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 
@@ -19,6 +21,18 @@ public class NimUtil {
     }
 
     public String useNim(String prompt) {
-        return "%s라니 멋지군요!".formatted(prompt);
+//        String model = "z-ai/glm-5.2";
+        String model = "deepseek-ai/deepseek-v4-flash";
+//        String response = restClient.post() //
+        NimResponseDTO response = restClient.post() //
+                .body(NimRequestDTO.of(model, prompt))
+                .retrieve()
+                // https://jsonformatter.org/
+                // String -> DTO
+//                .body(String.class);
+                .body(NimResponseDTO.class);
+        System.out.println("response = " + response);
+//        return "%s라니 멋지군요!".formatted(prompt);
+        return response.getResult();
     }
 }
