@@ -13,6 +13,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>nim-rest-client</name>
     <description>nim-rest-client</description>
+
+    <!--  Render 배포 고려해서 JSP 위해 'war' 패키징 지정  -->
+    <packaging>war</packaging>
+
     <url/>
     <licenses>
         <license/>
@@ -30,6 +34,26 @@
         <java.version>17</java.version>
     </properties>
     <dependencies>
+        <!--    jasper(jsp)    -->
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </dependency>
+        <!--    jstl(인터페이스, 구현체)    -->
+        <dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>3.0.1</version>
+            <scope>runtime</scope>
+        </dependency>
+
+        <!--    Starter에서 적용한 내용들...    -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
